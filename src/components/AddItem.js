@@ -3,20 +3,23 @@ import {Row, Input, Button} from 'react-materialize'
 
 
 class AddItem extends Component {
+
   constructor(){
     super()
-    this.localState = {
+    this.state = {
       productID: 0,
       quantity: 0,
     }
   }
+
   render () {
-    let theProduct = this.props.productOptions.map(product => {
-      console.log('theProduct', theProduct);
+      console.log('productList', this.props.productList)
+    let theProduct = this.props.productList.map(product => {
       return (
         <option key={product.id} value={product.id}>{product.name}</option>
       )
     })
+
     return (
       <div className="container-fluid">
         <h2>Add Item</h2>
@@ -25,7 +28,6 @@ class AddItem extends Component {
             s={6}
             type='select'
             label="Select a Product"
-            value={this.localState.productID}
           >
             {theProduct}
           </Input>
@@ -33,7 +35,6 @@ class AddItem extends Component {
             s={6}
             type="text"
             label="Select a Quantity"
-            value={this.localState.quantity}
           />
           <Button
             waves='light'

@@ -11,7 +11,7 @@ const ShoppingCart = ({items, products}) => {
   return (
     <div className="container">
       <Header />
-      <AddItem productOptions={products}/>
+      <AddItem productList={products}/>
       <CartItems cartItems={items}/>
       <Footer copyright={legalLine}/>
     </div>
