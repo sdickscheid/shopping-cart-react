@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 // import './App.css';
 import ShoppingCart from './components/ShoppingCart'
 
@@ -7,11 +6,11 @@ import ShoppingCart from './components/ShoppingCart'
 class App extends Component {
   constructor(){
     super()
-    this.applicationState = {
+    this.state = {
       items: [
-        { id: 1, product: { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 }, quantity: 1 },
-        { id: 2, product: { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 }, quantity: 2 },
-        { id: 3, product: { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 }, quantity: 1 },
+        // { id: 1, product: { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 }, quantity: 1 },
+        // { id: 2, product: { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 }, quantity: 2 },
+        // { id: 3, product: { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 }, quantity: 1 },
       ],
       products: [
         { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 },
@@ -26,10 +25,17 @@ class App extends Component {
       ]
     }
   }
+
+  addItemFunction = (newItem) => {
+    console.log('newItem props', newItem);
+    this.setState({items: this.state.items.concat(newItem)})
+    console.log();
+  }
+
   render() {
     return (
       <div className="App">
-        <ShoppingCart items={this.applicationState.items} products={this.applicationState.products}/>
+        <ShoppingCart items={this.state.items} products={this.state.products} addItemFunction={this.addItemFunction}/>
       </div>
     );
   }
